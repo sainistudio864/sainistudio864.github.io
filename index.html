@@ -993,30 +993,41 @@ Photo shoots,Videography,Haldi & Mehandi Also
                 </div>
             </div>
 
-            <form class="contact-form" id="bookingForm">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email Address" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Your Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <select required>
-                        <option value="" disabled selected>Select Service Required</option>
-                        <option value="photo">Commercial Photography</option>
-                        <option value="video">Cinematic Videography</option>
-                        <option value="audio">Pre-wedding shoots</option>
-                        <option value="rental">Portfolios</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Tell us about your project or required date..." required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 8px;">Submit Booking Request</button>
-            </form>
+<form class="contact-form" id="bookingForm">
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+    </div>
+
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email Address" required>
+    </div>
+
+    <div class="form-group">
+        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+    </div>
+
+    <div class="form-group">
+        <select name="service" required>
+            <option value="" disabled selected>Select Service Required</option>
+            <option value="photo">Commercial Photography</option>
+            <option value="video">Cinematic Videography</option>
+            <option value="audio">Pre-wedding shoots</option>
+            <option value="rental">Portfolios</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <textarea name="details" rows="4" placeholder="Tell us about your project or required date..." required></textarea>
+    </div>
+
+    <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; border-radius: 8px;">
+        Submit Booking Request
+    </button>
+
+    <p id="formStatus" role="status"></p>
+</form>
+
+            
         </div>
     </section>
 
@@ -1067,7 +1078,9 @@ Photo shoots,Videography,Haldi & Mehandi Also
             <p>&copy; 2026 Saini Studio. All Rights Reserved.</p>
         </div>
     </footer>
-    <script>
+   
+
+<script>
 const bookingForm = document.getElementById("bookingForm");
 const formStatus = document.getElementById("formStatus");
 const submitBtn = document.getElementById("submitBtn");
@@ -1094,7 +1107,6 @@ bookingForm.addEventListener("submit", async function(event) {
         if (response.ok) {
             formStatus.textContent =
                 "Thank you! Your booking request has been sent successfully.";
-
             bookingForm.reset();
         } else {
             formStatus.textContent =
@@ -1103,9 +1115,10 @@ bookingForm.addEventListener("submit", async function(event) {
     } catch (error) {
         formStatus.textContent =
             "Connection problem. Please check your internet and try again.";
-    }finally  {
+    } finally {
         submitBtn.disabled = false;
-    submitBtn.textContent = "Send Booking Request";
+        submitBtn.textContent = "Submit Booking Request";
+    }
 });
 </script>
 
