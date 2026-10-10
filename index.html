@@ -1070,12 +1070,45 @@ Photo shoots,Videography,Haldi & Mehandi Also
     </footer>
 
     <script>
-        // Form Submission Alert
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Input fields se values nikalna
+    const nameVal = document.querySelector('input[placeholder*="Name" i]')?.value || '';
+    const emailVal = document.querySelector('input[type="email"]')?.value || '';
+    const phoneVal = document.querySelector('input[type="tel"]')?.value || document.querySelector('input[placeholder*="phone" i]')?.value || '';
+    const shootVal = document.querySelector('select')?.value || '';
+    const detailsVal = document.querySelector('textarea')?.value || '';
+
+    // Formspree API API Call aapki unique ID (xgaoyogy) ke sath
+    fetch("https://formspree.io", { 
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: nameVal,
+            email: emailVal,
+            phone: phoneVal,
+            shoot_type: shootVal,
+            details: detailsVal
+        })
+    })
+    .then(response => {
+        if (response.ok) {
             alert('Aapka booking request receive ho gaya hai! Humari team aapse jald hi contact karegi.');
-            this.reset();
-        });
-    </script>
+            this.reset(); // Form submit hote hi saare boxes khali (clear) ho jayenge
+        } else {
+            alert("Oops! Request accept nahi hui. Formspree dashboard check karein.");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Network error! Internet connection check karein.");
+    });
+});
+</script>
+
 </body>
 </html>
