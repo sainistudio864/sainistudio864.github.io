@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saini Studios | Professional Photography & Production</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+     <style>
+        :root {
+            --primary: #e50914;
+            --primary-hover: #b80710;
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1f1f1f;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent-gold: #ffb400;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* --- Top Bar --- */
+        .top-bar {
+            background: #000;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid #222;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-info span {
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        .top-bar-info i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        .top-bar-social a {
+            color: var(--text-muted);
+            margin-left: 12px;
+            transition: var(--transition);
+        }
+
+        .top-bar-social a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            padding: 8px 20px;
+            background: var(--primary);
+            color: #fff !important;
+            border-radius: 30px;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 1) 100%), 
+                        url('https://picsum.photos/1920/1080?grayscale&blur=1') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 5%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            background: rgba(229, 9, 20, 0.15);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+
+        .hero-content p {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #333;
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- Stats Section --- */
+        .stats {
+            padding: 40px 5%;
+            background: var(--bg-card);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .stat-item h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- Section Common --- */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* --- About Section --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .experience-badge h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-content h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+        }
+
+        .about-features i {
+            color: var(--primary);
+            background: rgba(229, 9, 20, 0.1);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        /* --- Services --- */
+        .services {
+            background: var(--bg-card);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-dark);
+            padding: 35px 25px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(229, 9, 20, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Portfolio --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1.2rem;
+        }
+
+        .portfolio-overlay p {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        /* --- Pricing --- */
+        .pricing {
+            background: var(--bg-card);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--bg-dark);
+            padding: 35px 25px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        .price span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #222;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features i {
+            color: var(--primary);
+        }
+
+        /* --- Contact --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .info-card i {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: rgba(229, 9, 20, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 14px;
+            background: var(--bg-dark);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--primary);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            padding: 60px 5% 20px 5%;
+            border-top: 1px solid #222;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col ul a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #1f1f1f;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: #fff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Responsive Media Queries --- */
+        @media (max-width: 768px) {
+            .top-bar {
+                justify-content: center;
+                text-align: center;
+            }
+            .nav-links {
+                display: none; /* Hide for simple mobile view */
+            }
+            .navbar {
+                justify-content: center;
+            }
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+   
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span><i class="fas fa-phone"></i> +91 7408819490</span>
+            <span><i class="fas fa-envelope"></i> contact.sainistudio@gmail.com</span>
+            <span><i class="fas fa-map-marker-alt"></i> Lucknow Uttar Pradesh, India</span>
+        </div>
+        <div class="top-bar-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
+<div class="logo">SAINI <span> STUDIO</span></div>
+                <img src="lo.jpg" alt="Logo" style="height: 60px; width: 70px; object-fit: cover; border-radius: 50%;">
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#pricing">Packages</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Book Session</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="badge">Next-Gen Media Production</span>
+            <h1>We Bring Your Cinematic Visions To Life</h1>
+            <p>Premium Photography, 4K Commercial & Wedding Videography, Cinematic, Product Shoots</p>
+            <div class="btn-group">
+                <a href="#portfolio" class="btn btn-primary"><i class="fas fa-play"></i> Explore Our Work</a>
+                <a href="https://wa.me/917408819490" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Instant Chat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stats -->
+    <div class="stats">
+        <div class="stat-item">
+            <h3>20+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3>850+</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3>45+</h3>
+            <p>Awards Won</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Client Satisfaction</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://picsum.photos/600/700?random=10" alt="Studio Setup">
+                <div class="experience-badge">
+                    <h4>10+ Years</h4>
+                    <p>Of Creative Excellence</p>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="badge">Who We Are</span>
+                <h3>A Full-Service Creative Studio Built For Modern Storytelling</h3>
+                <p>Humare paas Photography, Videography, Cinematography, Commercial shoots & Album design with edited video available hai.</p>
+                
+                <ul class="about-features">
+                    <li><i class="fas fa-check"></i> High-End 4K Cameras (RED / Sony M4) & other best cameras</li>
+                    <li><i class="fas fa-check"></i> Album design and 4k video recording and editing</li>
+                    <li><i class="fas fa-check"></i> Crafting Visual Stories Through Lens & Edit</li>
+                </ul>
+
+                <br>
+                <a href="#contact" class="btn btn-primary">Schedule A Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <span class="badge">What We Do</span>
+            <h2>Our Premium Services</h2>
+            <p>4K resolution mein cinematic story-style wedding films, teaser, trailer, aur Instagram reels. Color grading aur sound design ke saath high-end output.</p>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Commercial Photography</h3>
+                <p>Fashion shoots, commercial product photography, and high-end portraiture designed to convert.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3>Cinematic Videography</h3>
+                <p>Music videos, cinema like video, and commercials shot in stunning ultra-HD format.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-camera-alt"></i></div>
+                <h3>Candid Photography</h3>
+                <p>No posing, no artificial smiles—just pure emotions and natural beauty.</p>
+            </div>
+                        
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-photo-video"></i></div>
+                <h3>Rental Studio Space</h3>
+                <p>Fully equipped studio space rental with custom backdrops, lights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-header">
+            <span class="badge">Gallery</span>
+            <h2>Our Studio Work</h2>
+            <p>Hamari recent shoots aur cinematic photography projects.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Photo 1 -->
+            <div class="portfolio-item">
+                <img src="com.jpg" alt="Studio Shoot 1">
+                <div class="portfolio-overlay">
+                    <h4>Fashion Editorial Shoot</h4>
+                    <p>Commercial Photography</p>
+                </div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="portfolio-item">
+                <img src="can.jpg" alt="Studio Shoot 2">
+                <div class="portfolio-overlay">
+                    <h4>Candid Images</h4>
+                    <p>Cinematic video</p>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="portfolio-item">
+                <img src="port.jpg" alt="Studio Shoot 3">
+                <div class="portfolio-overlay">
+                    <h4>Portfolios</h4>
+                    <p>Best portfolio shoots</p>
+                </div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="portfolio-item">
+                <img src="pro.jpg" alt="Studio Shoot 4">
+                <div class="portfolio-overlay">
+                    <h4>Brand Commercial</h4>
+                    <p>Brand product setup</p>
+                </div>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="portfolio-item">
+                <img src="pre.jpg" alt="Studio Shoot 5">
+                <div class="portfolio-overlay">
+                    <h4>Pre-Wedding Shoot</h4>
+                    <p>Cinematic Wedding</p>
+                </div>
+            </div>
+
+            <!-- Photo 6 -->
+            <div class="portfolio-item">
+                <img src="wed.jpg" alt="Studio Shoot 6">
+                <div class="portfolio-overlay">
+                    <h4>Wedding Photos</h4>
+                    <p>Wedding photos & Videos also</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <span class="badge">Transparent Pricing</span>
+            <h2>Choose Your Package</h2>
+            <p>Flexible packages designed to meet your specific budget and requirements.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>STARTER SHOOT</h3>
+                <div class="price">₹29,000 <span>/ Shoot</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i>  Photo shoots,Videography,Haldi & Mehandi Also</li>
+                    <li><i class="fas fa-check"></i>couple Shoots</li>
+                    <li><i class="fas fa-check"></i>Edited Wedding video </li>
+                    <li><i class="fas fa-check"></i>Album</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%;">Book Package</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="popular-badge">Most Popular</span>
+                <h3>MEDIUM SHOOTS</h3>
+                <div class="price">₹49,000 <span>/ Shoot</span></div>Photo shoots,Videography,Haldi & Mehandi Also
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i>Cinematic Video  </li>
+                    <li><i class="fas fa-check"></i>candid shoot</li>
+                    <li><i class="fas fa-check"></i>Wedding video & 5min teaser</li>
+                    <li><i class="fas fa-check"></i>With beautiful Album</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">Book Package</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>PREMIUM SHOOT</h3>
+                <div class="price">₹99,000 <span>/
+shoot</span></div>
+Photo shoots,Videography,Haldi & Mehandi Also 
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i>Candid shoot</li>
+                    <li><i class="fas fa-check"></i> Cinematic video</li>
+                    <li><i class="fas fa-check"></i> Drone & Crane with Led wall with 43 inches led tv live video </li>
+                    <li><i class="fas fa-check"></i> Premium Custamize Album,Wedding & Cinematic video,Teaser.<br><br>Any quaries for commercial shoots so plz contact us 
+                     </li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%;">Book Package</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="badge">Get In Touch</span>
+            <h2>Book Your Studio Session</h2>
+            <p>Have questions or want a custom quote? Drop us a message.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Call Us Directly</h4>
+                        <p>+917408819490 / 
+                        +919935014406</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p> contact.sainistudio                @gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <div>
+                        <h4>Visit Our Studio</h4>
+                        <p>Lucknow Uttar Pradesh, India</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Monday - Saturday: 09:00 AM - 09:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="bookingForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Select Service Required</option>
+                        <option value="photo">Commercial Photography</option>
+                        <option value="video">Cinematic Videography</option>
+                        <option value="audio">Pre-wedding shoots</option>
+                        <option value="rental">Portfolios</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Tell us about your project or required date..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 8px;">Submit Booking Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917408819490" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px;">SAINI <span>STUDIO</span></div>
+                <p>Providing premium work, high-end photography, cinematic video production and 'we will do our best.'</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#portfolio">Featured Work</a></li>
+                    <li><a href="#pricing">Pricing Plans</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#services">Commercial Shoots</a></li>
+                    <li><a href="#services">Wedding Photography & Videography</a></li>
+                    <li><a href="#services">Prewedding shoots</a></li>
+                    <li><a href="#services">Brand shoots</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe for exclusive studio discounts and creative tips.</p>
+                <div class="form-group" style="margin-top: 15px;">
+                    <input type="email" placeholder="Enter email">
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Saini Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form Submission Alert
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Aapka booking request receive ho gaya hai! Humari team aapse jald hi contact karegi.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
